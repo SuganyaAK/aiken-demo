@@ -37,7 +37,7 @@ test bytearray() {
   let a: ByteArray = "abcd"
   let b = "1234"
 
-  let c = "ABCDEFGH"
+  let c = #"abcd"//#"ABCD"
   let d = #[0xab, 0xcd]
 
   // These conditions are ALL True:
@@ -52,7 +52,7 @@ test bytearray() {
 
 test boolean() {
   // Fix these:
-  let y: Bool = False
+  let y: Bool = True
   let n = False
 
   y? || n?
@@ -90,11 +90,12 @@ test list() {
 /// Fix test option() in any way possible, may be more than 1 ways.
 test option() {
   let someone: Option<Bool> = Some(True)
-  let who = None
+  //let someone: Option<Bool> = None
+  //let who = None
 
-  expect Some(one) = who
+  //expect None = who
   when someone is {
-    Some(body) -> body == one
+    Some(body) -> body == True
     _ -> False
   }
 }
@@ -107,25 +108,30 @@ test ordering() {
   let pool = StakePool("VerificationKeyHash")
 
   and {
-    ConstitutionalCommitteeMember(script) > ConstitutionalCommitteeMember(key),
-    DelegateRepresentative(key) < DelegateRepresentative(script),
+    voter.compare(ConstitutionalCommitteeMember(script),ConstitutionalCommitteeMember(key)) == Less,
+    voter.compare(DelegateRepresentative(key),DelegateRepresentative(script)) == Greater,
     voter.compare(pool, pool) == Equal,
   }
-}
+ }
 
-/// Fix test data()
+// /// Fix test data()
 test data() {
   let a: Data = "1"
   let b: Data = 0xabcd
   let c: Data = False
 
-  expect s: Data = a
-  expect h: Data = b
-  expect n: Data = c
+  expect s: ByteArray = a
+  expect h: Int = b
+  expect n: Bool = c
 
   and {
+    0 === false,
     s == "1",
     h == 43_981,
     !n,
   }
 }
+
+// 0 === false
+// True != False
+// 0 == False
