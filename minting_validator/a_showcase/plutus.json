@@ -1,0 +1,167 @@
+{
+  "preamble": {
+    "title": "aikenastasia/a_showcase",
+    "description": "Aiken contracts for project 'aikenastasia/a_showcase'",
+    "version": "0.0.0",
+    "plutusVersion": "v3",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.1.16+23061c0"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "showcase.always_true.mint",
+      "redeemer": {
+        "title": "_redeemer",
+        "schema": {
+          "$ref": "#/definitions/Void"
+        }
+      },
+      "compiledCode": "587601010029800aba2aba1aab9faab9eaab9dab9a48888896600264653001300700198039804000cc01c0092225980099b8748000c01cdd500144cc89289bae300a30083754004b30013370e900018039baa0038acc004c020dd5001c5268b20128b200c8b200c180380098019baa0078a4d13656400401",
+      "hash": "8761e9fe0a8c042808814d59559d62be87d492b46fa93ab09b44a00f"
+    },
+    {
+      "title": "showcase.always_true.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "587601010029800aba2aba1aab9faab9eaab9dab9a48888896600264653001300700198039804000cc01c0092225980099b8748000c01cdd500144cc89289bae300a30083754004b30013370e900018039baa0038acc004c020dd5001c5268b20128b200c8b200c180380098019baa0078a4d13656400401",
+      "hash": "8761e9fe0a8c042808814d59559d62be87d492b46fa93ab09b44a00f"
+    },
+    {
+      "title": "showcase.check_redeemer.mint",
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/Int"
+        }
+      },
+      "compiledCode": "585701010029800aba2aba1aab9eaab9dab9a4888896600264646644b30013370e900018031baa00289919b87375a6012008902a1bae300830073754005164014600c600e002600c004600c00260066ea801a29344d9590011",
+      "hash": "526a08dea03272a2b37463135385a8f80128d041978a9cdcc66c77bf"
+    },
+    {
+      "title": "showcase.check_redeemer.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "585701010029800aba2aba1aab9eaab9dab9a4888896600264646644b30013370e900018031baa00289919b87375a6012008902a1bae300830073754005164014600c600e002600c004600c00260066ea801a29344d9590011",
+      "hash": "526a08dea03272a2b37463135385a8f80128d041978a9cdcc66c77bf"
+    },
+    {
+      "title": "showcase.check_redeemer_2.mint",
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/showcase~1types~1redeemer~1MyRedeemer"
+        }
+      },
+      "compiledCode": "58ba01010029800aba2aba1aab9faab9eaab9dab9a48888896600264653001300700198039804000cc01c0092225980099b8748000c01cdd500144c96600266e1d200030083754009132323322598009808001c4c96600266e3cdd71808000a4410d48656c6c6f2c20576f726c642100899b87375a60206022002902a45282018300d37540111640386eb4c034004dd71806801180680098049baa0048b200e375c601460106ea800a2c8030600e00260066ea801e29344d95900101",
+      "hash": "9a5f4ebe232213e14f22e4801edc2204b61cbc740f0e2fe937af981f"
+    },
+    {
+      "title": "showcase.check_redeemer_2.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "58ba01010029800aba2aba1aab9faab9eaab9dab9a48888896600264653001300700198039804000cc01c0092225980099b8748000c01cdd500144c96600266e1d200030083754009132323322598009808001c4c96600266e3cdd71808000a4410d48656c6c6f2c20576f726c642100899b87375a60206022002902a45282018300d37540111640386eb4c034004dd71806801180680098049baa0048b200e375c601460106ea800a2c8030600e00260066ea801e29344d95900101",
+      "hash": "9a5f4ebe232213e14f22e4801edc2204b61cbc740f0e2fe937af981f"
+    },
+    {
+      "title": "showcase.nft.mint",
+      "redeemer": {
+        "title": "_redeemer",
+        "schema": {
+          "$ref": "#/definitions/Void"
+        }
+      },
+      "parameters": [
+        {
+          "title": "output_reference",
+          "schema": {
+            "$ref": "#/definitions/cardano~1transaction~1OutputReference"
+          }
+        }
+      ],
+      "compiledCode": "590155010100229800aba2aba1aba0aab9faab9eaab9dab9a488888896600264646644b30013370e900018031baa0018999119912cc004cdc3a4004005132330010013758601e00844b30010018a508acc004cdd7980818069baa30100010138a518998010011808800a016403915980099b874800400a29462941009201232598009807000c4dd698051806800c5900b192cc004cdc3a400460126ea8006297adef6c6089bab300d300a37540028040c8cc004004dd598069807180718071807001112cc0040062980103d87a8000899192cc004cdc8803000c56600266e3c018006266e9520003300f300d0024bd7045300103d87a8000402d1330040043011003402c6eb8c02c004c03800500c2cc004cdc3a400060106ea80122b300130093754009149a2c80522c8038dd7180518039baa001300737546014009164014601000260106012002601000260066ea802229344d9590011",
+      "hash": "34c54207e86aa026192222b40cc6a22e8fdef3a2d2db592337bdd8b2"
+    },
+    {
+      "title": "showcase.nft.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "parameters": [
+        {
+          "title": "output_reference",
+          "schema": {
+            "$ref": "#/definitions/cardano~1transaction~1OutputReference"
+          }
+        }
+      ],
+      "compiledCode": "590155010100229800aba2aba1aba0aab9faab9eaab9dab9a488888896600264646644b30013370e900018031baa0018999119912cc004cdc3a4004005132330010013758601e00844b30010018a508acc004cdd7980818069baa30100010138a518998010011808800a016403915980099b874800400a29462941009201232598009807000c4dd698051806800c5900b192cc004cdc3a400460126ea8006297adef6c6089bab300d300a37540028040c8cc004004dd598069807180718071807001112cc0040062980103d87a8000899192cc004cdc8803000c56600266e3c018006266e9520003300f300d0024bd7045300103d87a8000402d1330040043011003402c6eb8c02c004c03800500c2cc004cdc3a400060106ea80122b300130093754009149a2c80522c8038dd7180518039baa001300737546014009164014601000260106012002601000260066ea802229344d9590011",
+      "hash": "34c54207e86aa026192222b40cc6a22e8fdef3a2d2db592337bdd8b2"
+    }
+  ],
+  "definitions": {
+    "ByteArray": {
+      "title": "ByteArray",
+      "dataType": "bytes"
+    },
+    "Int": {
+      "dataType": "integer"
+    },
+    "Void": {
+      "title": "Unit",
+      "anyOf": [
+        {
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        }
+      ]
+    },
+    "cardano/transaction/OutputReference": {
+      "title": "OutputReference",
+      "description": "An `OutputReference` is a unique reference to an output on-chain. The `output_index`\n corresponds to the position in the output list of the transaction (identified by its id)\n that produced that output",
+      "anyOf": [
+        {
+          "title": "OutputReference",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "transaction_id",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "output_index",
+              "$ref": "#/definitions/Int"
+            }
+          ]
+        }
+      ]
+    },
+    "showcase/types/redeemer/MyRedeemer": {
+      "title": "MyRedeemer",
+      "anyOf": [
+        {
+          "title": "MyRedeemer",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "key",
+              "$ref": "#/definitions/ByteArray"
+            },
+            {
+              "title": "value",
+              "$ref": "#/definitions/Int"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

@@ -1,0 +1,175 @@
+{
+  "preamble": {
+    "title": "aikenastasia/c_answer",
+    "description": "Aiken contracts for project 'aikenastasia/c_answer'",
+    "version": "0.0.0",
+    "plutusVersion": "v3",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.1.16+23061c0"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "answer.check_redeemer.mint",
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/ByteArray"
+        }
+      },
+      "compiledCode": "586601010029800aba2aba1aab9eaab9dab9a4888896600264646644b30013370e900018031baa00289919b8f375c601200891010d48656c6c6f2c20576f726c642100375c6010600e6ea800a2c8028c018c01c004c018008c018004c00cdd5003452689b2b20021",
+      "hash": "5a11e89a3bb42e7fca042e8736a26f10926ea140db273e4e62933424"
+    },
+    {
+      "title": "answer.check_redeemer.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "586601010029800aba2aba1aab9eaab9dab9a4888896600264646644b30013370e900018031baa00289919b8f375c601200891010d48656c6c6f2c20576f726c642100375c6010600e6ea800a2c8028c018c01c004c018008c018004c00cdd5003452689b2b20021",
+      "hash": "5a11e89a3bb42e7fca042e8736a26f10926ea140db273e4e62933424"
+    },
+    {
+      "title": "answer.check_redeemer_2.mint",
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/answer~1types~1redeemer~1MyRedeemer"
+        }
+      },
+      "compiledCode": "5901d301010029800aba2aba1aba0aab9faab9eaab9dab9a488888896600264646644b30013370e900018031baa0018992cc004cdc3a4000600e6ea800e264664464b300130100038991919912cc004c05000e266446644b3001300a30133754602e603000915980099b884800000626466446600400400244b30010018a508acc004cdd7980d180b9baa301a0010038a51899801001180d800a02a40606eb0c060010cdd2a40006602c602e0046602c602e603000497ae08a504049133710002900020243758602a00464b3001301700189bad301330160018b20283259800980498091baa0018a5eb7bdb18226eacc058c04cdd5000a02232330010013756602c602e602e602e602e00444b30010018a6103d87a8000899192cc004cdc8807800c56600266e3c03c006266e9520003301830160024bd7045300103d87a80004051133004004301a00340506eb8c050004c05c00501518081baa00b30103754602601b1640446eb4c044004dd7180880118088009bac300f0048b201a32598009806000c56600266e252004300b0018b44c008c02c00500a45900d1baa300e002300d001370e900118041baa0038b200c375c6014600e6ea80062c8028c020004c020c024004c020004c00cdd5004452689b2b20021",
+      "hash": "a58179fdaad3885bf8c53fa35933733a2ba1724cfcb31b926f27a53b"
+    },
+    {
+      "title": "answer.check_redeemer_2.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "5901d301010029800aba2aba1aba0aab9faab9eaab9dab9a488888896600264646644b30013370e900018031baa0018992cc004cdc3a4000600e6ea800e264664464b300130100038991919912cc004c05000e266446644b3001300a30133754602e603000915980099b884800000626466446600400400244b30010018a508acc004cdd7980d180b9baa301a0010038a51899801001180d800a02a40606eb0c060010cdd2a40006602c602e0046602c602e603000497ae08a504049133710002900020243758602a00464b3001301700189bad301330160018b20283259800980498091baa0018a5eb7bdb18226eacc058c04cdd5000a02232330010013756602c602e602e602e602e00444b30010018a6103d87a8000899192cc004cdc8807800c56600266e3c03c006266e9520003301830160024bd7045300103d87a80004051133004004301a00340506eb8c050004c05c00501518081baa00b30103754602601b1640446eb4c044004dd7180880118088009bac300f0048b201a32598009806000c56600266e252004300b0018b44c008c02c00500a45900d1baa300e002300d001370e900118041baa0038b200c375c6014600e6ea80062c8028c020004c020c024004c020004c00cdd5004452689b2b20021",
+      "hash": "a58179fdaad3885bf8c53fa35933733a2ba1724cfcb31b926f27a53b"
+    },
+    {
+      "title": "answer.nft.mint",
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/answer~1types~1action~1Action"
+        }
+      },
+      "parameters": [
+        {
+          "title": "transaction_id",
+          "schema": {
+            "$ref": "#/definitions/ByteArray"
+          }
+        },
+        {
+          "title": "output_index",
+          "schema": {
+            "$ref": "#/definitions/Int"
+          }
+        }
+      ],
+      "compiledCode": "5901930101002229800aba2aba1aba0aab9faab9eaab9dab9a9bae0039bad00248888888896600264653001300a00198051805800cdc3a4001300a0024888966002600460146ea800e266446644b300130060018acc004c03cdd5004400a2c80822b300130030018acc004c03cdd5004400a2c80822c806900d099192cc004c018c038dd50044566002600600313232330010013758602800844b30010018a508acc004cdd7980a98091baa30150010038a51899801001180b000a020404c66e952000330113752018660226ea002d2f5c114a0806a266e1c0052001403464b3001301300189bad300f30120018b20203259800980198071baa0018a5eb7bdb18226eacc048c03cdd5000a01a323300100137566024602660266026602600444b30010018a6103d87a8000899192cc004cdc8803800c56600266e3c01c006266e9520003301430120024bd7045300103d87a80004041133004004301600340406eb8c040004c04c00501118069baa003300c375400c6eb8c038c02cdd50019b874800a2c80486014002600a6ea802a29344d95900301",
+      "hash": "a88064e7860ec3a1e02a9448dc2f4170109383ddb10acdde5a716700"
+    },
+    {
+      "title": "answer.nft.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "parameters": [
+        {
+          "title": "transaction_id",
+          "schema": {
+            "$ref": "#/definitions/ByteArray"
+          }
+        },
+        {
+          "title": "output_index",
+          "schema": {
+            "$ref": "#/definitions/Int"
+          }
+        }
+      ],
+      "compiledCode": "5901930101002229800aba2aba1aba0aab9faab9eaab9dab9a9bae0039bad00248888888896600264653001300a00198051805800cdc3a4001300a0024888966002600460146ea800e266446644b300130060018acc004c03cdd5004400a2c80822b300130030018acc004c03cdd5004400a2c80822c806900d099192cc004c018c038dd50044566002600600313232330010013758602800844b30010018a508acc004cdd7980a98091baa30150010038a51899801001180b000a020404c66e952000330113752018660226ea002d2f5c114a0806a266e1c0052001403464b3001301300189bad300f30120018b20203259800980198071baa0018a5eb7bdb18226eacc048c03cdd5000a01a323300100137566024602660266026602600444b30010018a6103d87a8000899192cc004cdc8803800c56600266e3c01c006266e9520003301430120024bd7045300103d87a80004041133004004301600340406eb8c040004c04c00501118069baa003300c375400c6eb8c038c02cdd50019b874800a2c80486014002600a6ea802a29344d95900301",
+      "hash": "a88064e7860ec3a1e02a9448dc2f4170109383ddb10acdde5a716700"
+    }
+  ],
+  "definitions": {
+    "Bool": {
+      "title": "Bool",
+      "anyOf": [
+        {
+          "title": "False",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        },
+        {
+          "title": "True",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": []
+        }
+      ]
+    },
+    "ByteArray": {
+      "title": "ByteArray",
+      "dataType": "bytes"
+    },
+    "Int": {
+      "dataType": "integer"
+    },
+    "Tuple$ByteArray_Int": {
+      "title": "Tuple",
+      "dataType": "list",
+      "items": [
+        {
+          "$ref": "#/definitions/ByteArray"
+        },
+        {
+          "$ref": "#/definitions/Int"
+        }
+      ]
+    },
+    "answer/types/action/Action": {
+      "title": "Action",
+      "anyOf": [
+        {
+          "title": "Mint",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        },
+        {
+          "title": "Burn",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": []
+        }
+      ]
+    },
+    "answer/types/redeemer/MyRedeemer": {
+      "title": "MyRedeemer",
+      "anyOf": [
+        {
+          "title": "MyRedeemer",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "output_reference",
+              "$ref": "#/definitions/Tuple$ByteArray_Int"
+            },
+            {
+              "title": "is_minting",
+              "$ref": "#/definitions/Bool"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}

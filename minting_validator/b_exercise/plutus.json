@@ -1,0 +1,110 @@
+{
+  "preamble": {
+    "title": "aikenastasia/b_exercise",
+    "description": "Aiken contracts for project 'aikenastasia/b_exercise'",
+    "version": "0.0.0",
+    "plutusVersion": "v3",
+    "compiler": {
+      "name": "Aiken",
+      "version": "v1.1.16+23061c0"
+    },
+    "license": "Apache-2.0"
+  },
+  "validators": [
+    {
+      "title": "exercise.check_redeemer.mint",
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/ByteArray"
+        }
+      },
+      "compiledCode": "586501010029800aba2aba1aab9eaab9dab9a4888896600264646644b30013370e900018031baa00289919b8f375c601200891010c48656c6c6f2c20576f726c6400375c6010600e6ea800a2c8028c018c01c004c018008c018004c00cdd5003452689b2b20021",
+      "hash": "b3f8b94f78d0fc6bfaa947a5c9ed379c900b655385799728d01321e6"
+    },
+    {
+      "title": "exercise.check_redeemer.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "586501010029800aba2aba1aab9eaab9dab9a4888896600264646644b30013370e900018031baa00289919b8f375c601200891010c48656c6c6f2c20576f726c6400375c6010600e6ea800a2c8028c018c01c004c018008c018004c00cdd5003452689b2b20021",
+      "hash": "b3f8b94f78d0fc6bfaa947a5c9ed379c900b655385799728d01321e6"
+    },
+    {
+      "title": "exercise.check_redeemer_2.mint",
+      "redeemer": {
+        "title": "redeemer",
+        "schema": {
+          "$ref": "#/definitions/exercise~1types~1redeemer~1MyRedeemer"
+        }
+      },
+      "compiledCode": "59019201010029800aba2aba1aba0aab9faab9eaab9dab9a488888896600264653001300800198041804800cc0200092225980099b8748000c01cdd500144c96600266e1d200030083754009132332232598009808801c4c8c8cc8966002602a0071332259800980418091baa301630173013375401d1337109000198009bab300230133754018017133710660026eacc008c04cdd5006005a400080888c054c058c058c058c05800488c96600260300031375a6028602e00316405464b300130093013375400314bd6f7b63044dd5980b980a1baa0014048646600200200644b30010018a6103d87a8000899192cc004cdc8802800c56600266e3c014006266e9520003301930170024bd7045300103d87a80004055133004004301b00340546eb8c054004c0600050164590121bad3012001375c602400460240026eb0c0400122c8070c966002601a00315980099b8948010c0300062d13002300c001402d1640386ea8c03c008c038004dc3a400460126ea80122c8038dd7180598041baa0028b200c180400098019baa0088a4d13656400401",
+      "hash": "23263ff06546989deec4bf663e708d63e4863a6d7b376996c98897b8"
+    },
+    {
+      "title": "exercise.check_redeemer_2.else",
+      "redeemer": {
+        "schema": {}
+      },
+      "compiledCode": "59019201010029800aba2aba1aba0aab9faab9eaab9dab9a488888896600264653001300800198041804800cc0200092225980099b8748000c01cdd500144c96600266e1d200030083754009132332232598009808801c4c8c8cc8966002602a0071332259800980418091baa301630173013375401d1337109000198009bab300230133754018017133710660026eacc008c04cdd5006005a400080888c054c058c058c058c05800488c96600260300031375a6028602e00316405464b300130093013375400314bd6f7b63044dd5980b980a1baa0014048646600200200644b30010018a6103d87a8000899192cc004cdc8802800c56600266e3c014006266e9520003301930170024bd7045300103d87a80004055133004004301b00340546eb8c054004c0600050164590121bad3012001375c602400460240026eb0c0400122c8070c966002601a00315980099b8948010c0300062d13002300c001402d1640386ea8c03c008c038004dc3a400460126ea80122c8038dd7180598041baa0028b200c180400098019baa0088a4d13656400401",
+      "hash": "23263ff06546989deec4bf663e708d63e4863a6d7b376996c98897b8"
+    }
+  ],
+  "definitions": {
+    "Bool": {
+      "title": "Bool",
+      "anyOf": [
+        {
+          "title": "False",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": []
+        },
+        {
+          "title": "True",
+          "dataType": "constructor",
+          "index": 1,
+          "fields": []
+        }
+      ]
+    },
+    "ByteArray": {
+      "dataType": "bytes"
+    },
+    "Int": {
+      "dataType": "integer"
+    },
+    "Tuple$ByteArray_Int": {
+      "title": "Tuple",
+      "dataType": "list",
+      "items": [
+        {
+          "$ref": "#/definitions/ByteArray"
+        },
+        {
+          "$ref": "#/definitions/Int"
+        }
+      ]
+    },
+    "exercise/types/redeemer/MyRedeemer": {
+      "title": "MyRedeemer",
+      "anyOf": [
+        {
+          "title": "MyRedeemer",
+          "dataType": "constructor",
+          "index": 0,
+          "fields": [
+            {
+              "title": "output_reference",
+              "$ref": "#/definitions/Tuple$ByteArray_Int"
+            },
+            {
+              "title": "is_minting",
+              "$ref": "#/definitions/Bool"
+            }
+          ]
+        }
+      ]
+    }
+  }
+}
