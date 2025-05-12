@@ -3,12 +3,11 @@ use cardano/assets.{PolicyId}
 use cardano/transaction.{OutputReference, Transaction}
 use exercise/types/action.{Action, Burn, Mint}
 use exercise/types/redeemer.{MyRedeemer}
-use exercise/util.{mint_qty,consume_utxo}
+use exercise/util
 
 validator check_redeemer {
   mint(redeemer: ByteArray, _policy_id: PolicyId, _tx: Transaction) {
-    //todo @"Allow minting/burning when `redeemer` equals to ``Hello, World!``"
-    (redeemer == "Hello, World")?
+    todo @"Allow minting/burning when `redeemer` equals to ``Hello, World!``"
   }
 
   else(_) {
@@ -18,28 +17,7 @@ validator check_redeemer {
 
 validator check_redeemer_2 {
   mint(redeemer: MyRedeemer, policy_id: PolicyId, tx: Transaction) {
-    //todo @"Validate minting/burning based on `MyRedeemer.is_minting`"
-
-   let MyRedeemer {
-    output_reference: (transaction_id, output_index),
-    is_minting,
-} = redeemer
-
-    let Transaction { mint, inputs, .. } = tx
-    let mint_qty = mint |> mint_qty(policy_id)
-    if is_minting {
-      and {
-        (mint_qty > 0)?,
-        (consume_utxo(tx.inputs,redeemer.output_reference))?
-      }
-      // True -> ((mint_qty(tx.mint,policy_id) > 0) && consume_utxo(tx.inputs,OutputReference("",tx)))?
-      // False -> (mint_qty(tx.mint,policy_id) < 0)?
-    }
-
-    else{
-      (mint_qty < 0)?
-    }
-    // is_output_consumed? && 
+    todo @"Validate minting/burning based on `MyRedeemer.is_minting`"
     // If `is_minting` is `True`:
     // - check mint qty must be positive
     // - check `MyRedeemer.output_reference` UTxO must be consumed
@@ -48,29 +26,28 @@ validator check_redeemer_2 {
     // - check mint qty must be negative
     //
     // Explain why solely trusting on redeemer data is a bad idea?
-  
   }
+
   else(_) {
     fail
   }
 }
 
+validator nft(
+  transaction_id: Hash<Blake2b_256, Transaction>,
+  output_index: Int,
+) {
+  mint(redeemer action: Action, policy_id: PolicyId, tx: Transaction) {
+    todo @"Validate minting/burning based on `action`"
+    // If `action` is `Action.Mint`:
+    // - check mint qty must equal to 1
+    // - check `OutputReference(transaction_id, output_index)` UTxO must be consumed
+    //
+    // If `action` is `Action.Burn`:
+    // - check mint qty must equal to -1
+  }
 
-// validator nft(
-//   transaction_id: Hash<Blake2b_256, Transaction>,
-//   output_index: Int,
-// ) {
-//   mint(redeemer action: Action, policy_id: PolicyId, tx: Transaction) {
-//     todo @"Validate minting/burning based on `action`"
-//     // If `action` is `Action.Mint`:
-//     // - check mint qty must equal to 1
-//     // - check `OutputReference(transaction_id, output_index)` UTxO must be consumed
-//     //
-//     // If `action` is `Action.Burn`:
-//     // - check mint qty must equal to -1
-//   }
-
-//   else(_) {
-//     fail
-//   }
-// }
+  else(_) {
+    fail
+  }
+}

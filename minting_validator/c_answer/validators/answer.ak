@@ -35,8 +35,7 @@ validator check_redeemer_2 {
           OutputReference { transaction_id, output_index },
         )?,
       }
-    }
-  } else {
+    } else {
       (mint_qty < 0)?
     }
   }
@@ -44,7 +43,7 @@ validator check_redeemer_2 {
   else(_) {
     fail
   }
-
+}
 
 validator nft(
   transaction_id: Hash<Blake2b_256, Transaction>,
