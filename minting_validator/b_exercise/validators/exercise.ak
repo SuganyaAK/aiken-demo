@@ -17,15 +17,27 @@ validator check_redeemer {
 
 validator check_redeemer_2 {
   mint(redeemer: MyRedeemer, policy_id: PolicyId, tx: Transaction) {
-    todo @"Validate minting/burning based on `MyRedeemer.is_minting`"
-    // If `is_minting` is `True`:
-    // - check mint qty must be positive
-    // - check `MyRedeemer.output_reference` UTxO must be consumed
-    //
-    // If `is_minting` is `False`:
-    // - check mint qty must be negative
-    //
-    // Explain why solely trusting on redeemer data is a bad idea?
+    trace @"redeemer": redeemer
+
+    let MyRedeemer {
+      output_reference: (transaction_id, output_index),
+      is_minting,
+    } = redeemer
+
+    let Transaction { mint, inputs, .. } = tx
+    let mint_qty = mint |> util.mint_qty(policy_id)
+
+    if is_minting? {
+      and {
+        (mint_qty > 0)?,
+        util.consume_utxo(
+          inputs,
+          OutputReference { transaction_id, output_index },
+        )?,
+      }
+    } else {
+      (mint_qty < 0)?
+    }
   }
 
   else(_) {
@@ -33,12 +45,30 @@ validator check_redeemer_2 {
   }
 }
 
+// pub type MyRedeemer {
+//   output_reference: (ByteArray, Int),
+//   is_minting: Bool,
+// }
+
+// pub type Action {
+//   Mint
+//   Burn
+// }
+
 validator nft(
   transaction_id: Hash<Blake2b_256, Transaction>,
   output_index: Int,
 ) {
   mint(redeemer action: Action, policy_id: PolicyId, tx: Transaction) {
     todo @"Validate minting/burning based on `action`"
+
+    let Transaction { mint, input, .. } = tx
+    when action is {
+      Mint -> and {
+          (mint_qty == 1)?,
+          consume_utxo(tx.input, OutputReference(transaction_id, output_index))?,
+        }
+    }
     // If `action` is `Action.Mint`:
     // - check mint qty must equal to 1
     // - check `OutputReference(transaction_id, output_index)` UTxO must be consumed
