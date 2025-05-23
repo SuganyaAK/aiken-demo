@@ -3,7 +3,7 @@ use cardano/assets.{PolicyId}
 use cardano/transaction.{OutputReference, Transaction}
 use exercise/types/action.{Action, Burn, Mint}
 use exercise/types/redeemer.{MyRedeemer}
-use exercise/util
+use exercise/util.{consume_utxo, mint_qty}
 
 validator check_redeemer {
   mint(redeemer: ByteArray, _policy_id: PolicyId, _tx: Transaction) {
@@ -60,14 +60,16 @@ validator nft(
   output_index: Int,
 ) {
   mint(redeemer action: Action, policy_id: PolicyId, tx: Transaction) {
-    todo @"Validate minting/burning based on `action`"
+    //todo @"Validate minting/burning based on `action`"
 
-    let Transaction { mint, input, .. } = tx
+    let Transaction { mint, inputs, .. } = tx
+    let mint_qty = mint |> util.mint_qty(policy_id)
     when action is {
       Mint -> and {
           (mint_qty == 1)?,
-          consume_utxo(tx.input, OutputReference(transaction_id, output_index))?,
+          consume_utxo(tx.inputs, OutputReference(transaction_id, output_index))?,
         }
+      Burn -> mint_qty == -1
     }
     // If `action` is `Action.Mint`:
     // - check mint qty must equal to 1
